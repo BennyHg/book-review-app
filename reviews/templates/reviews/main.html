@@ -1,0 +1,43 @@
+{% load static %}
+<!doctype html>
+<html>
+  <head>
+    <title>Book Reviews</title>
+    <link rel="stylesheet" href="{% static "book-review.css" %}">
+  </head>
+  <body>
+    <header>
+      <div>My Book Reviews</div>
+      <nav>
+        <a href="create.html">Create a review</a>
+      </nav>
+    </header>
+    <main>
+          {% for review in reviews %}
+      <div class="main-page-book-review">
+        <img class="book-cover" src="{{ review.cover_image }}">
+        <h2 class="book-title">
+          <a href="detail.html">{{ review.title }}</a>
+        </h2>
+        <div class="book-rating">{{ review.rating }} stars</div>
+        <div class="book-authors">
+          {{ review.authors }}
+        </div>
+        <h3>Summary</h3>
+        <p>
+          {{ review.summary }}
+        </p>
+      </div>
+          {% endfor %}
+    </main>
+    <footer>
+      <div>
+        Copyright 2022 by me
+      </div>
+      <p>
+        This is my site that contains all of my book reviews
+        that you can read to see if you'd like that book.
+      </p>
+    </footer>
+  </body>
+</html>
