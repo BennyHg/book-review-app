@@ -1,0 +1,41 @@
+{% load static %}
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Create A Book Review</title>
+    <link rel="stylesheet" href="{% static 'book-review.css' %}">
+  </head>
+  <body>
+    <header>
+      <div>My Book Reviews</div>
+      <nav>
+        <a href="{% url 'reviews_list' %}">Back to list</a>
+      </nav>
+    </header>
+    <main>
+      <div class="book-review-form">
+        <form method="post">
+            <form method="post">
+                {% csrf_token %}
+                {{ form.as_p }}
+                <div>
+                  <button>Submit</button>
+                </div>
+            </form>
+          <div>
+            <button>Submit</button>
+          </div>
+        </form>
+      </div>
+    </main>
+    <footer>
+      <div>
+        Copyright 2022 by me
+      </div>
+      <p>
+        This is my site that contains all of my book reviews
+        that you can read to see if you'd like that book.
+      </p>
+    </footer>
+  </body>
+</html>

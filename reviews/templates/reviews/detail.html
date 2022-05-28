@@ -2,22 +2,22 @@
 <!doctype html>
 <html>
   <head>
-    <title>Book Reviews</title>
+    <title>make it stick - Book Reviews</title>
     <link rel="stylesheet" href="{% static 'book-review.css' %}">
   </head>
   <body>
     <header>
       <div>My Book Reviews</div>
       <nav>
-        <a href="{% url 'create_review' %}">Create a review</a>
+        <a href="main.html">Back to list</a>
+        <a href="create.html">Create a review</a>
       </nav>
     </header>
     <main>
-          {% for review in reviews %}
-      <div class="main-page-book-review">
+      <div class="detail-page-book-review">
         <img class="book-cover" src="{{ review.cover_image }}">
         <h2 class="book-title">
-          <a href="{% url 'review_detail' review.id %}">{{ review.title }}</a>
+          <a href="detail.html">{{ review.title }}</a>
         </h2>
         <div class="book-rating">{{ review.rating }} stars</div>
         <div class="book-authors">
@@ -27,8 +27,11 @@
         <p>
           {{ review.summary }}
         </p>
+        <h2>My review</h2>
+        <p>
+          {{ review.review }}
+        </p>
       </div>
-          {% endfor %}
     </main>
     <footer>
       <div>
